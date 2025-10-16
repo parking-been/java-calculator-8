@@ -4,7 +4,10 @@ package calculator.domain;
 public class DelimiterPolicy {
     private String totalString;
     private final String CUSTOM_DELIMITER_PREFIX = "//";
-    private final String CUSTOM_DELIMITER_SUFFIX = "\n";
+    private final String CUSTOM_DELIMITER_SUFFIX = "\\n";
+    private String delimiter;
+    private String calculationString = null;
+
     public DelimiterPolicy(String totalString){
         this.totalString = totalString;
     }
@@ -19,9 +22,25 @@ public class DelimiterPolicy {
         int prefixIndex = this.totalString.indexOf(CUSTOM_DELIMITER_PREFIX);
         int suffixIndex = this.totalString.indexOf(CUSTOM_DELIMITER_SUFFIX);
 
+        if (prefixIndex==-1 && suffixIndex==-1){
+            //둘다 존재하지 않는 경우
+            calculationString = totalString;
+        }
+        else if (prefixIndex==-1 || suffixIndex==-1){
+            //둘중 하나만 존재하는 경우
+
+        }
+        else{
+            //둘다 존재하는 경우
+
+        }
+
+
 
 
     }
+
+
 
 
 
