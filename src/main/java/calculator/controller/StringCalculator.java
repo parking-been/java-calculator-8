@@ -16,6 +16,9 @@ public class StringCalculator {
         }
 
         DelimiterPolicy delimiterPolicy = new DelimiterPolicy(totalString);
+        //커스텀 구분자 확인 & 문자열 나누기
+        delimiterPolicy.run();
+
 
     }
 
