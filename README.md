@@ -98,7 +98,7 @@ CalculationString : 계산 문자열 - 입력받은 문자열의 뒷 부분 (”
 
 ### 각 부분을 숫자로 변환
 
-- 커스텀 문자들을 기준으로 Calculation String 분할하기
+- 커스텀문자와 CalculationString 전달 받기.
 - Calculation String 을 순회하며 숫자부분으로 이루어져 있는지 확인하고 → int 로 바꿔주기
     - 이때 빈문자열의 경우 IllegalArgumentException 발생 “하나의 문자열로만 구분하기”
     - 숫자가 아닐 경우 Illegal ArgumentException 발생
