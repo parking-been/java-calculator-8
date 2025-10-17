@@ -3,13 +3,12 @@ package calculator.domain;
 import java.util.ArrayList;
 
 import calculator.exception.ErrorMessage;
-import net.bytebuddy.description.ByteCodeElement;
-import org.assertj.core.error.ErrorMessageFactory;
 
 public class Tokenizer {
     private String calculationString;
     private String delimiter;
     private ArrayList<Integer> operand = new ArrayList<>();
+    private Operands operands;
     public Tokenizer(String calculationString, String delimiter){
         this.calculationString = calculationString;
         this.delimiter = delimiter;
@@ -17,7 +16,13 @@ public class Tokenizer {
 
     public void run(){
         checkOperand();
+        operands = new Operands(operand);
 
+
+    }
+
+    public Operands getOperands(){
+        return operands;
     }
 
     private void checkOperand(){

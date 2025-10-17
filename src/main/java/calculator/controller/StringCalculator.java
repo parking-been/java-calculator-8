@@ -2,7 +2,7 @@ package calculator.controller;
 
 import calculator.domain.DelimiterPolicy;
 import calculator.domain.Tokenizer;
-import calculator.exception.ErrorMessage;
+import calculator.domain.Operands;
 import calculator.view.InputView;
 import calculator.view.OutputView;
 
@@ -23,6 +23,10 @@ public class StringCalculator {
         Tokenizer tokenizer = new Tokenizer(delimiterPolicy.getCalculationString(), delimiterPolicy.getDelimiter());
         //각 부분을 숫자로 변환 & validation
         tokenizer.run();
+
+
+
+
 
 
 
