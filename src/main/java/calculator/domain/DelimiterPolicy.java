@@ -7,10 +7,11 @@ public class DelimiterPolicy {
     private String totalString;
     private final String CUSTOM_DELIMITER_PREFIX = "//";
     private final String CUSTOM_DELIMITER_SUFFIX = "\\n";
-    private String delimiter;
+    private String delimiter = ",:";
     private String calculationString = null;
     private int prefixIndex;
     private int suffixIndex;
+
     public DelimiterPolicy(String totalString){
         this.totalString = totalString;
     }
@@ -37,6 +38,7 @@ public class DelimiterPolicy {
             //둘 다 존재하는 경우
             //커스텀 구분자 확인 + validation
             checkCustomDelimiter();
+
         }
 
 
@@ -49,7 +51,7 @@ public class DelimiterPolicy {
             if (newDelimiter.length()!=1){
                 throw new IllegalArgumentException(ErrorMessage.CUSTOM_DELIMITER_ERROR_2.getMessage());
             }
-
+            delimiter = delimiter + newDelimiter;
 
         }
         else{
