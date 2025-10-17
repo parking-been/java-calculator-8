@@ -26,7 +26,11 @@ public class Tokenizer {
 
         for (String ele : parts){
             if(ele.matches("\\d+")){
-                operand.add(Integer.parseInt(ele));
+                int element = Integer.parseInt(ele);
+                if (element == 0){
+                    throw new IllegalArgumentException(ErrorMessage.TOKENIZER_INPUT_ERROR_2.getMessage());
+                }
+                operand.add(element);
             }
             else{
                 throw new IllegalArgumentException(ErrorMessage.TOKENIZER_INPUT_ERROR.getMessage());
