@@ -24,10 +24,10 @@ public class StringCalculator {
         //각 부분을 숫자로 변환 & validation
         tokenizer.run();
 
-
-
-
-
+        // 숫자 부분을 모두 합하고 출력하기
+        Operands operands = tokenizer.getOperands();
+        OutputView.printOutputMessage();
+        System.out.println(operands.add());
 
 
     }
