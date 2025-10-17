@@ -21,6 +21,13 @@ public class DelimiterPolicy {
         checkPrefixSuffixIndex();
     }
 
+    public String getCalculationString(){
+        return calculationString;
+    }
+    public String getDelimiter(){
+        return delimiter;
+    }
+
     //커스텀 구분자 확인 + validation
     private void checkPrefixSuffixIndex(){
         this.prefixIndex = this.totalString.indexOf(CUSTOM_DELIMITER_PREFIX);
