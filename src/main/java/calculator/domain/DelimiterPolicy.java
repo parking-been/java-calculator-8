@@ -39,6 +39,9 @@ public class DelimiterPolicy {
             //커스텀 구분자 확인 + validation
             checkCustomDelimiter();
 
+            //calculationString(1;2;3) 뽑기
+            calculationString = totalString.substring(suffixIndex+2);
+
         }
 
 
