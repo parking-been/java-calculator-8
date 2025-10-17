@@ -100,7 +100,7 @@ CalculationString : 계산 문자열 - 입력받은 문자열의 뒷 부분 (”
 
 - 커스텀문자와 CalculationString 전달 받기.
 - Calculation String 을 순회하며 숫자부분으로 이루어져 있는지 확인하고 → int 로 바꿔주기
-    - 숫자와 숫자사이에 공백 혹은 여러 delimiter 사용 가능하다 가정하기
+    - 숫자와 숫자사이에 공백 혹은 여러 delimiter 사용 가능하다 가정하기 (ex: `//;\n1:;2; ,3`)
     - 숫자가 아닐 경우 Illegal ArgumentException 발생
     - 0일 경우 양수의 입력값을 넣을 수 있도록 Illegal ArgumentException 발생
 

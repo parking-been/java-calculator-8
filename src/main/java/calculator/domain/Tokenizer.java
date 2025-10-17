@@ -12,6 +12,16 @@ public class Tokenizer {
     }
 
     public void run(){
+        checkOperand();
 
+    }
+
+    private void checkOperand(){
+
+        String[] parts = calculationString.split("[" + delimiter + "\\s]+");
+
+        for (String ele : parts){
+            System.out.println(ele);
+        }
     }
 }

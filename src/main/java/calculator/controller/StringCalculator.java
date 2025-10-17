@@ -21,6 +21,8 @@ public class StringCalculator {
         delimiterPolicy.run();
 
         Tokenizer tokenizer = new Tokenizer(delimiterPolicy.getCalculationString(), delimiterPolicy.getDelimiter());
+        //각 부분을 숫자로 변환 & validation
+        tokenizer.run();
 
 
 
