@@ -68,12 +68,55 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 숫자_사이사이_띄어쓰기_가능() {
-        assertSimpleTest(() -> {
-            run("1 :,  :2 , ,: 3");
-            assertThat(output()).contains("결과 : 6");
-        });
+    void 숫자_사이사이_띄어쓰기_예외() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("1 :,  :2 , ,: 3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
     }
+
+    @Test
+    void 커스텀_구분_문자열이_하나만_사용된_예외() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("//1:2:3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 지정되지_않은_커스텀_문자_예외() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("1+2+3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 문자열에_0_사용된_예외() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("//+\\n1+0+3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 문자열에_음수_사용된_예외() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("-2,3:4"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 커스텀_구분문자가_없는_예외() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("//\n1,2,3"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+
+    
 
 
 
