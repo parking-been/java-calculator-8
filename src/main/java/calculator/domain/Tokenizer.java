@@ -27,12 +27,12 @@ public class Tokenizer {
 
     private void checkOperand(){
 
-        String[] parts = calculationString.split("[" + delimiter + "\\s]+");
+        String[] parts = calculationString.split("[" + delimiter + "]+");
 
         for (String ele : parts){
             if(ele.matches("(-)?\\d+")){
-                int element = Integer.parseInt(ele);
-
+                int element = Integer.parseInt(ele.trim());
+                
                 if (element <= 0){
                     throw new IllegalArgumentException(ErrorMessage.TOKENIZER_INPUT_ERROR_2.getMessage());
                 }
