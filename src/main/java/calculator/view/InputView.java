@@ -1,12 +1,18 @@
 package calculator.view;
-
+import java.util.NoSuchElementException;
 import camp.nextstep.edu.missionutils.Console;
 
 import calculator.exception.ErrorMessage;
 public class InputView {
     public static String getInput(){
 
-        String value =Console.readLine();
+        String value = "";
+        try {
+            value = Console.readLine();
+        } catch (NoSuchElementException e){
+            value = "";
+        }
+
 
         //validation
         if (value == null){
