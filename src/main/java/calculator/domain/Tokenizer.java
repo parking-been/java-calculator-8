@@ -30,11 +30,13 @@ public class Tokenizer {
         String[] parts = calculationString.split("[" + delimiter + "\\s]+");
 
         for (String ele : parts){
-            if(ele.matches("\\d+")){
+            if(ele.matches("(-)?\\d+")){
                 int element = Integer.parseInt(ele);
-                if (element == 0){
+
+                if (element <= 0){
                     throw new IllegalArgumentException(ErrorMessage.TOKENIZER_INPUT_ERROR_2.getMessage());
                 }
+
                 operand.add(element);
             }
             else{
