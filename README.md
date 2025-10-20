@@ -137,7 +137,7 @@ StringCalculator : 문자열 계산기 역할 domain의 main 부분
 
 ExceptionMessage : exception에 대한 다양한 예외처리 메세지 문구를 저장하는 부분
 
-## 🎈 TDD
+## 🎈 Test case 구현
 
 ---
 

@@ -20,8 +20,6 @@ public class Tokenizer {
     public void run(){
         checkOperand();
         operands = new Operands(operand);
-
-
     }
 
     public Operands getOperands(){

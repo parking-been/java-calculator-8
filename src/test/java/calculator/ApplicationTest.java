@@ -57,7 +57,7 @@ class ApplicationTest extends NsTest {
     }
 
 
-
+    //예외 case test
 
     @Test
     void 예외_테스트() {
@@ -114,9 +114,6 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
-
-
-    
 
 
 
