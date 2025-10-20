@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 import calculator.exception.ErrorMessage;
 
+/**
+ * 문자열에서 숫자 추출하기
+ */
 public class Tokenizer {
     private String calculationString;
     private String delimiter;

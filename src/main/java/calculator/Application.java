@@ -7,12 +7,5 @@ public class Application {
         StringCalculator stringCalculator = new StringCalculator();
         stringCalculator.run();
 
-//        try{
-//            stringCalculator.run();
-//        } catch(IllegalArgumentException e){
-//            System.out.println(e.getMessage());
-//        }
-
-
     }
 }
