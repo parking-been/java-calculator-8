@@ -30,7 +30,7 @@ public class DelimiterPolicy {
         return delimiter;
     }
 
-    //커스텀 구분자 확인 + validation
+    //커스텀 구분자 추출 + validation
     private void checkPrefixSuffixIndex(){
         this.prefixIndex = this.totalString.indexOf(CUSTOM_DELIMITER_PREFIX);
         this.suffixIndex = this.totalString.indexOf(CUSTOM_DELIMITER_SUFFIX);
@@ -45,35 +45,40 @@ public class DelimiterPolicy {
         }
         else{
             //둘 다 존재하는 경우
+
             //커스텀 구분자 확인 + validation
             checkCustomDelimiter();
-
             //calculationString(1;2;3) 뽑기
-            calculationString = totalString.substring(suffixIndex+2);
-
+            calculationString = extractCalculationString();
         }
-
 
     }
 
     private void checkCustomDelimiter(){
-        if (prefixIndex < suffixIndex){
-            String newDelimiter = totalString.substring(prefixIndex+2,suffixIndex);
-            //커스텀 구문자의 길이가 1이 아닐 경우
-            if (newDelimiter.length()!=1){
-                throw new IllegalArgumentException(ErrorMessage.CUSTOM_DELIMITER_ERROR_2.getMessage());
-            }
-            delimiter = delimiter + newDelimiter;
-
+        //validation
+        validateIndices();
+        //커스텀 구문자 추출
+        String newDelimiter = extractCustomDelimiter();
+        //커스텀 구문자의 길이가 1이 아닐 경우
+        if (newDelimiter.length()!=1){
+            throw new IllegalArgumentException(ErrorMessage.CUSTOM_DELIMITER_ERROR_2.getMessage());
         }
-        else{
+        delimiter = delimiter + newDelimiter;
+
+    }
+
+    private void validateIndices(){
+        if(prefixIndex >= suffixIndex){
             throw new IllegalArgumentException(ErrorMessage.CUSTOM_DELIMITER_ERROR.getMessage());
         }
     }
 
+    private String extractCustomDelimiter(){
+        return totalString.substring(prefixIndex+2,suffixIndex);
+    }
 
-
-
-
+    private String extractCalculationString(){
+        return totalString.substring(suffixIndex+2);
+    }
 
 }
